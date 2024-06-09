@@ -29,11 +29,11 @@ Partial Class IntervalHeader
         ' head
         ' 
         head.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
-        head.Font = New Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point)
+        head.Font = New Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point)
         head.ForeColor = Color.SteelBlue
         head.Location = New Point(0, 0)
         head.Name = "head"
-        head.Size = New Size(61, 26)
+        head.Size = New Size(56, 17)
         head.TabIndex = 0
         head.Text = "Head"
         head.TextAlign = ContentAlignment.MiddleCenter
@@ -43,9 +43,9 @@ Partial Class IntervalHeader
         body.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
         body.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
         body.ForeColor = Color.SteelBlue
-        body.Location = New Point(0, 26)
+        body.Location = New Point(0, 17)
         body.Name = "body"
-        body.Size = New Size(61, 21)
+        body.Size = New Size(56, 15)
         body.TabIndex = 1
         body.Text = "Body"
         body.TextAlign = ContentAlignment.MiddleCenter
@@ -57,7 +57,7 @@ Partial Class IntervalHeader
         Controls.Add(body)
         Controls.Add(head)
         Name = "IntervalHeader"
-        Size = New Size(64, 51)
+        Size = New Size(59, 38)
         ResumeLayout(False)
     End Sub
 

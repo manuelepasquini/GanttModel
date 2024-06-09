@@ -22,33 +22,28 @@ Partial Class GanttDiagram
     'Non modificarla mediante l'editor del codice.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        GanttHeadersPanel = New Panel()
+        Dim resources As ComponentModel.ComponentResourceManager = New ComponentModel.ComponentResourceManager(GetType(GanttDiagram))
         Label1 = New Label()
         PictureBox1 = New PictureBox()
         PictureBox2 = New PictureBox()
-        ComboBox1 = New ComboBox()
         TaskHeadersPanel = New Panel()
+        GanttHeadersTablePanel = New TableLayoutPanel()
+        ToolStrip1 = New ToolStrip()
+        ToolStripButton1 = New ToolStripButton()
+        ToolStripButton2 = New ToolStripButton()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
+        ToolStrip1.SuspendLayout()
         SuspendLayout()
-        ' 
-        ' GanttHeadersPanel
-        ' 
-        GanttHeadersPanel.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
-        GanttHeadersPanel.BackColor = SystemColors.ActiveCaption
-        GanttHeadersPanel.Location = New Point(309, 32)
-        GanttHeadersPanel.Name = "GanttHeadersPanel"
-        GanttHeadersPanel.Size = New Size(196, 57)
-        GanttHeadersPanel.TabIndex = 0
         ' 
         ' Label1
         ' 
         Label1.Anchor = AnchorStyles.Top Or AnchorStyles.Right
-        Label1.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        Label1.Font = New Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point)
         Label1.ForeColor = Color.FromArgb(CByte(73), CByte(103), CByte(190))
-        Label1.Location = New Point(261, 6)
+        Label1.Location = New Point(220, 28)
         Label1.Name = "Label1"
-        Label1.Size = New Size(176, 23)
+        Label1.Size = New Size(176, 48)
         Label1.TabIndex = 1
         Label1.Text = "Giugno 2024"
         Label1.TextAlign = ContentAlignment.MiddleRight
@@ -56,10 +51,11 @@ Partial Class GanttDiagram
         ' PictureBox1
         ' 
         PictureBox1.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        PictureBox1.Cursor = Cursors.Hand
         PictureBox1.Image = My.Resources.Resources.next__1_
-        PictureBox1.Location = New Point(443, 3)
+        PictureBox1.Location = New Point(402, 28)
         PictureBox1.Name = "PictureBox1"
-        PictureBox1.Size = New Size(28, 28)
+        PictureBox1.Size = New Size(49, 48)
         PictureBox1.SizeMode = PictureBoxSizeMode.CenterImage
         PictureBox1.TabIndex = 2
         PictureBox1.TabStop = False
@@ -67,52 +63,87 @@ Partial Class GanttDiagram
         ' PictureBox2
         ' 
         PictureBox2.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        PictureBox2.Cursor = Cursors.Hand
         PictureBox2.Image = My.Resources.Resources._next
-        PictureBox2.Location = New Point(477, 3)
+        PictureBox2.Location = New Point(457, 28)
         PictureBox2.Name = "PictureBox2"
-        PictureBox2.Size = New Size(28, 28)
+        PictureBox2.Size = New Size(49, 48)
         PictureBox2.SizeMode = PictureBoxSizeMode.CenterImage
         PictureBox2.TabIndex = 3
         PictureBox2.TabStop = False
         ' 
-        ' ComboBox1
-        ' 
-        ComboBox1.FormattingEnabled = True
-        ComboBox1.Items.AddRange(New Object() {"Giorno", "Settimana", "Mese"})
-        ComboBox1.Location = New Point(3, 3)
-        ComboBox1.Name = "ComboBox1"
-        ComboBox1.Size = New Size(121, 23)
-        ComboBox1.TabIndex = 4
-        ' 
         ' TaskHeadersPanel
         ' 
         TaskHeadersPanel.BackColor = Color.SteelBlue
-        TaskHeadersPanel.Location = New Point(3, 32)
+        TaskHeadersPanel.Location = New Point(4, 79)
         TaskHeadersPanel.Name = "TaskHeadersPanel"
-        TaskHeadersPanel.Size = New Size(300, 57)
+        TaskHeadersPanel.Size = New Size(300, 43)
         TaskHeadersPanel.TabIndex = 1
         ' 
+        ' GanttHeadersTablePanel
+        ' 
+        GanttHeadersTablePanel.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
+        GanttHeadersTablePanel.AutoScroll = True
+        GanttHeadersTablePanel.BackColor = Color.AliceBlue
+        GanttHeadersTablePanel.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single
+        GanttHeadersTablePanel.ColumnCount = 1
+        GanttHeadersTablePanel.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100F))
+        GanttHeadersTablePanel.Location = New Point(310, 79)
+        GanttHeadersTablePanel.Name = "GanttHeadersTablePanel"
+        GanttHeadersTablePanel.RowCount = 1
+        GanttHeadersTablePanel.RowStyles.Add(New RowStyle(SizeType.Percent, 100F))
+        GanttHeadersTablePanel.Size = New Size(196, 43)
+        GanttHeadersTablePanel.TabIndex = 5
+        ' 
+        ' ToolStrip1
+        ' 
+        ToolStrip1.Items.AddRange(New ToolStripItem() {ToolStripButton1, ToolStripButton2})
+        ToolStrip1.Location = New Point(0, 0)
+        ToolStrip1.Name = "ToolStrip1"
+        ToolStrip1.Size = New Size(508, 25)
+        ToolStrip1.TabIndex = 6
+        ToolStrip1.Text = "ToolStrip1"' 
+        ' ToolStripButton1
+        ' 
+        ToolStripButton1.DisplayStyle = ToolStripItemDisplayStyle.Image
+        ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), Image)
+        ToolStripButton1.ImageTransparentColor = Color.Magenta
+        ToolStripButton1.Name = "ToolStripButton1"
+        ToolStripButton1.Size = New Size(23, 22)
+        ToolStripButton1.Text = "ToolStripButton1"' 
+        ' ToolStripButton2
+        ' 
+        ToolStripButton2.DisplayStyle = ToolStripItemDisplayStyle.Image
+        ToolStripButton2.Image = CType(resources.GetObject("ToolStripButton2.Image"), Image)
+        ToolStripButton2.ImageTransparentColor = Color.Magenta
+        ToolStripButton2.Name = "ToolStripButton2"
+        ToolStripButton2.Size = New Size(23, 22)
+        ToolStripButton2.Text = "ToolStripButton2"' 
         ' GanttDiagram
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
+        Controls.Add(ToolStrip1)
+        Controls.Add(GanttHeadersTablePanel)
         Controls.Add(TaskHeadersPanel)
-        Controls.Add(ComboBox1)
         Controls.Add(PictureBox2)
         Controls.Add(PictureBox1)
         Controls.Add(Label1)
-        Controls.Add(GanttHeadersPanel)
         Name = "GanttDiagram"
         Size = New Size(508, 310)
         CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBox2, ComponentModel.ISupportInitialize).EndInit()
+        ToolStrip1.ResumeLayout(False)
+        ToolStrip1.PerformLayout()
         ResumeLayout(False)
+        PerformLayout()
     End Sub
-
-    Friend WithEvents GanttHeadersPanel As Panel
     Friend WithEvents Label1 As Label
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents PictureBox2 As PictureBox
-    Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents TaskHeadersPanel As Panel
+    Friend WithEvents GanttHeadersTablePanel As TableLayoutPanel
+    Friend WithEvents ToolStrip1 As ToolStrip
+    Friend WithEvents ToolStripButton1 As ToolStripButton
+    Friend WithEvents ToolStripButton2 As ToolStripButton
 End Class
