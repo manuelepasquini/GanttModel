@@ -20,7 +20,6 @@
 
         ' Aggiungere le eventuali istruzioni di inizializzazione dopo la chiamata a InitializeComponent().
         Me.Task = task
-
         PerformGraphic(StartInterval, EndInterval)
     End Sub
 

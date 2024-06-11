@@ -22,18 +22,14 @@ Partial Class GanttDiagram
     'Non modificarla mediante l'editor del codice.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As ComponentModel.ComponentResourceManager = New ComponentModel.ComponentResourceManager(GetType(GanttDiagram))
         Label1 = New Label()
         PictureBox1 = New PictureBox()
         PictureBox2 = New PictureBox()
         GanttHeadersTablePanel = New TableLayoutPanel()
         ToolStrip1 = New ToolStrip()
-        ToolStripButton1 = New ToolStripButton()
-        ToolStripButton2 = New ToolStripButton()
         GanttBodyTablePanel = New TableLayoutPanel()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
-        ToolStrip1.SuspendLayout()
         SuspendLayout()
         ' 
         ' Label1
@@ -89,28 +85,11 @@ Partial Class GanttDiagram
         ' 
         ' ToolStrip1
         ' 
-        ToolStrip1.Items.AddRange(New ToolStripItem() {ToolStripButton1, ToolStripButton2})
         ToolStrip1.Location = New Point(0, 0)
         ToolStrip1.Name = "ToolStrip1"
         ToolStrip1.Size = New Size(508, 25)
         ToolStrip1.TabIndex = 6
         ToolStrip1.Text = "ToolStrip1"' 
-        ' ToolStripButton1
-        ' 
-        ToolStripButton1.DisplayStyle = ToolStripItemDisplayStyle.Image
-        ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), Image)
-        ToolStripButton1.ImageTransparentColor = Color.Magenta
-        ToolStripButton1.Name = "ToolStripButton1"
-        ToolStripButton1.Size = New Size(23, 22)
-        ToolStripButton1.Text = "ToolStripButton1"' 
-        ' ToolStripButton2
-        ' 
-        ToolStripButton2.DisplayStyle = ToolStripItemDisplayStyle.Image
-        ToolStripButton2.Image = CType(resources.GetObject("ToolStripButton2.Image"), Image)
-        ToolStripButton2.ImageTransparentColor = Color.Magenta
-        ToolStripButton2.Name = "ToolStripButton2"
-        ToolStripButton2.Size = New Size(23, 22)
-        ToolStripButton2.Text = "ToolStripButton2"' 
         ' GanttBodyTablePanel
         ' 
         GanttBodyTablePanel.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
@@ -139,8 +118,6 @@ Partial Class GanttDiagram
         Size = New Size(508, 310)
         CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBox2, ComponentModel.ISupportInitialize).EndInit()
-        ToolStrip1.ResumeLayout(False)
-        ToolStrip1.PerformLayout()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -149,8 +126,6 @@ Partial Class GanttDiagram
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents GanttHeadersTablePanel As TableLayoutPanel
     Friend WithEvents ToolStrip1 As ToolStrip
-    Friend WithEvents ToolStripButton1 As ToolStripButton
-    Friend WithEvents ToolStripButton2 As ToolStripButton
     Friend WithEvents GanttBodyTablePanel As TableLayoutPanel
     Friend WithEvents ProgressBar1 As ProgressBar
 End Class
