@@ -26,11 +26,11 @@ Partial Class GanttDiagram
         Label1 = New Label()
         PictureBox1 = New PictureBox()
         PictureBox2 = New PictureBox()
-        TaskHeadersPanel = New Panel()
         GanttHeadersTablePanel = New TableLayoutPanel()
         ToolStrip1 = New ToolStrip()
         ToolStripButton1 = New ToolStripButton()
         ToolStripButton2 = New ToolStripButton()
+        GanttBodyTablePanel = New TableLayoutPanel()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
         ToolStrip1.SuspendLayout()
@@ -72,14 +72,6 @@ Partial Class GanttDiagram
         PictureBox2.TabIndex = 3
         PictureBox2.TabStop = False
         ' 
-        ' TaskHeadersPanel
-        ' 
-        TaskHeadersPanel.BackColor = Color.SteelBlue
-        TaskHeadersPanel.Location = New Point(4, 79)
-        TaskHeadersPanel.Name = "TaskHeadersPanel"
-        TaskHeadersPanel.Size = New Size(300, 43)
-        TaskHeadersPanel.TabIndex = 1
-        ' 
         ' GanttHeadersTablePanel
         ' 
         GanttHeadersTablePanel.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
@@ -88,11 +80,11 @@ Partial Class GanttDiagram
         GanttHeadersTablePanel.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single
         GanttHeadersTablePanel.ColumnCount = 1
         GanttHeadersTablePanel.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100F))
-        GanttHeadersTablePanel.Location = New Point(310, 79)
+        GanttHeadersTablePanel.Location = New Point(3, 79)
         GanttHeadersTablePanel.Name = "GanttHeadersTablePanel"
         GanttHeadersTablePanel.RowCount = 1
         GanttHeadersTablePanel.RowStyles.Add(New RowStyle(SizeType.Percent, 100F))
-        GanttHeadersTablePanel.Size = New Size(196, 43)
+        GanttHeadersTablePanel.Size = New Size(503, 43)
         GanttHeadersTablePanel.TabIndex = 5
         ' 
         ' ToolStrip1
@@ -119,13 +111,27 @@ Partial Class GanttDiagram
         ToolStripButton2.Name = "ToolStripButton2"
         ToolStripButton2.Size = New Size(23, 22)
         ToolStripButton2.Text = "ToolStripButton2"' 
+        ' GanttBodyTablePanel
+        ' 
+        GanttBodyTablePanel.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        GanttBodyTablePanel.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single
+        GanttBodyTablePanel.ColumnCount = 2
+        GanttBodyTablePanel.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 23.07692F))
+        GanttBodyTablePanel.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 76.92308F))
+        GanttBodyTablePanel.Location = New Point(3, 128)
+        GanttBodyTablePanel.Name = "GanttBodyTablePanel"
+        GanttBodyTablePanel.RowCount = 1
+        GanttBodyTablePanel.RowStyles.Add(New RowStyle(SizeType.Absolute, 20F))
+        GanttBodyTablePanel.Size = New Size(503, 179)
+        GanttBodyTablePanel.TabIndex = 7
+        ' 
         ' GanttDiagram
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
+        Controls.Add(GanttBodyTablePanel)
         Controls.Add(ToolStrip1)
         Controls.Add(GanttHeadersTablePanel)
-        Controls.Add(TaskHeadersPanel)
         Controls.Add(PictureBox2)
         Controls.Add(PictureBox1)
         Controls.Add(Label1)
@@ -141,9 +147,10 @@ Partial Class GanttDiagram
     Friend WithEvents Label1 As Label
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents PictureBox2 As PictureBox
-    Friend WithEvents TaskHeadersPanel As Panel
     Friend WithEvents GanttHeadersTablePanel As TableLayoutPanel
     Friend WithEvents ToolStrip1 As ToolStrip
     Friend WithEvents ToolStripButton1 As ToolStripButton
     Friend WithEvents ToolStripButton2 As ToolStripButton
+    Friend WithEvents GanttBodyTablePanel As TableLayoutPanel
+    Friend WithEvents ProgressBar1 As ProgressBar
 End Class

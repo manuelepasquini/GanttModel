@@ -27,7 +27,8 @@ Partial Class Form1
         ' 
         ' GanttDiagram1
         ' 
-        GanttDiagram1.Data = New DateTime(0L)
+        GanttDiagram1.Data = New DateTime(2024, 6, 18, 0, 0, 0, 0)
+        GanttDiagram1.DateCurrent = New DateTime(2024, 6, 11, 0, 0, 0, 0)
         GanttDiagram1.Dock = DockStyle.Fill
         GanttDiagram1.Location = New Point(0, 0)
         GanttDiagram1.Name = "GanttDiagram1"
@@ -42,6 +43,7 @@ Partial Class Form1
         Controls.Add(GanttDiagram1)
         Name = "Form1"
         Text = "Form1"
+        WindowState = FormWindowState.Maximized
         ResumeLayout(False)
     End Sub
 
