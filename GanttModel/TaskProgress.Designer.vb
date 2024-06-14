@@ -56,6 +56,7 @@ Partial Class TaskProgress
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
+        BackColor = SystemColors.Control
         Controls.Add(PictureBox1)
         Controls.Add(ProgressTabelLayout)
         Name = "TaskProgress"

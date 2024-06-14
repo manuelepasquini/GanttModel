@@ -30,7 +30,7 @@ Partial Class IntervalHeader
         ' 
         head.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
         head.Font = New Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point)
-        head.ForeColor = Color.SteelBlue
+        head.ForeColor = Color.White
         head.Location = New Point(0, 0)
         head.Name = "head"
         head.Size = New Size(56, 17)
@@ -42,7 +42,7 @@ Partial Class IntervalHeader
         ' 
         body.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
         body.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        body.ForeColor = Color.SteelBlue
+        body.ForeColor = Color.White
         body.Location = New Point(0, 17)
         body.Name = "body"
         body.Size = New Size(56, 15)

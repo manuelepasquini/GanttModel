@@ -14,7 +14,7 @@
     Private CellColorEndtindex As Integer = -1
     Dim CountHourInterval As Integer
 
-    Public Sub New(task As TaskGantt, StartInterval As Date, EndInterval As Date, color As Color)
+    Public Sub New(task As TaskGantt, StartInterval As Date, EndInterval As Date)
         ' La chiamata è richiesta dalla finestra di progettazione.
         InitializeComponent()
 
@@ -23,7 +23,7 @@
         PerformGraphic(StartInterval, EndInterval)
     End Sub
 
-    Private Sub PerformGraphic(StartInterval As Date, EndInterval As Date)
+    Public Sub PerformGraphic(StartInterval As Date, EndInterval As Date)
         Dim progressLayout As TableLayoutPanel = ProgressTabelLayout
 
         Dim i As Integer
@@ -49,12 +49,13 @@
             'Calcolo cella per fine colorazione
             If (CountSecondStartInterval + (3600 * i)) >= CountSecondendPlanned AndAlso CellColorEndtindex = -1 Then
                 CellColorEndtindex = i
-                'Exit For
+                Exit For
             End If
-
         Next
 
-        'MsgBox("Inizio:" + Str(CellColorStartindex) + vbCrLf + "Fine:" + Str(CellColorEndtindex))
+        If CellColorEndtindex = -1 Then
+            CellColorEndtindex = CountHourInterval
+        End If
     End Sub
 
     Public Sub DrawProgress()
@@ -62,5 +63,16 @@
         Me.PictureBox1.BackColor = Task.Color
         Me.PictureBox1.Location = New Point(widthIncrement * (CellColorStartindex), 3)
         Me.PictureBox1.Size = New Size(widthIncrement * (CellColorEndtindex - CellColorStartindex), 15)
+    End Sub
+
+    Public Sub MoveProgression(action As Integer)
+        If action = 1 Then
+            CellColorStartindex += 24
+            CellColorEndtindex += 24
+        ElseIf action = 2 Then
+            CellColorStartindex -= 24
+            CellColorEndtindex -= 24
+        End If
+        DrawProgress()
     End Sub
 End Class
