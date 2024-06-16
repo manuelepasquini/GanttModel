@@ -23,40 +23,40 @@ Partial Class GanttDiagram
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As ComponentModel.ComponentResourceManager = New ComponentModel.ComponentResourceManager(GetType(GanttDiagram))
-        PictureBox1 = New PictureBox()
-        PictureBox2 = New PictureBox()
+        GoBack = New PictureBox()
+        GoNext = New PictureBox()
         GanttHeadersTablePanel = New TableLayoutPanel()
         ToolStrip1 = New ToolStrip()
         ToolStripButton1 = New ToolStripButton()
         GanttBodyTablePanel = New TableLayoutPanel()
-        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
-        CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
+        CType(GoBack, ComponentModel.ISupportInitialize).BeginInit()
+        CType(GoNext, ComponentModel.ISupportInitialize).BeginInit()
         ToolStrip1.SuspendLayout()
         SuspendLayout()
         ' 
-        ' PictureBox1
+        ' GoBack
         ' 
-        PictureBox1.Anchor = AnchorStyles.Top
-        PictureBox1.Cursor = Cursors.Hand
-        PictureBox1.Image = My.Resources.Resources.next__1_
-        PictureBox1.Location = New Point(219, 25)
-        PictureBox1.Name = "PictureBox1"
-        PictureBox1.Size = New Size(49, 48)
-        PictureBox1.SizeMode = PictureBoxSizeMode.CenterImage
-        PictureBox1.TabIndex = 2
-        PictureBox1.TabStop = False
+        GoBack.Anchor = AnchorStyles.Top
+        GoBack.Cursor = Cursors.Hand
+        GoBack.Image = My.Resources.Resources.next__1_
+        GoBack.Location = New Point(219, 25)
+        GoBack.Name = "GoBack"
+        GoBack.Size = New Size(49, 48)
+        GoBack.SizeMode = PictureBoxSizeMode.CenterImage
+        GoBack.TabIndex = 2
+        GoBack.TabStop = False
         ' 
-        ' PictureBox2
+        ' GoNext
         ' 
-        PictureBox2.Anchor = AnchorStyles.Top
-        PictureBox2.Cursor = Cursors.Hand
-        PictureBox2.Image = My.Resources.Resources._next
-        PictureBox2.Location = New Point(274, 25)
-        PictureBox2.Name = "PictureBox2"
-        PictureBox2.Size = New Size(49, 48)
-        PictureBox2.SizeMode = PictureBoxSizeMode.CenterImage
-        PictureBox2.TabIndex = 3
-        PictureBox2.TabStop = False
+        GoNext.Anchor = AnchorStyles.Top
+        GoNext.Cursor = Cursors.Hand
+        GoNext.Image = My.Resources.Resources._next
+        GoNext.Location = New Point(274, 25)
+        GoNext.Name = "GoNext"
+        GoNext.Size = New Size(49, 48)
+        GoNext.SizeMode = PictureBoxSizeMode.CenterImage
+        GoNext.TabIndex = 3
+        GoNext.TabStop = False
         ' 
         ' GanttHeadersTablePanel
         ' 
@@ -111,13 +111,13 @@ Partial Class GanttDiagram
         Controls.Add(GanttBodyTablePanel)
         Controls.Add(ToolStrip1)
         Controls.Add(GanttHeadersTablePanel)
-        Controls.Add(PictureBox2)
-        Controls.Add(PictureBox1)
+        Controls.Add(GoNext)
+        Controls.Add(GoBack)
         DoubleBuffered = True
         Name = "GanttDiagram"
         Size = New Size(508, 310)
-        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
-        CType(PictureBox2, ComponentModel.ISupportInitialize).EndInit()
+        CType(GoBack, ComponentModel.ISupportInitialize).EndInit()
+        CType(GoNext, ComponentModel.ISupportInitialize).EndInit()
         ToolStrip1.ResumeLayout(False)
         ToolStrip1.PerformLayout()
         ResumeLayout(False)
@@ -130,4 +130,6 @@ Partial Class GanttDiagram
     Friend WithEvents GanttBodyTablePanel As TableLayoutPanel
     Friend WithEvents ProgressBar1 As ProgressBar
     Friend WithEvents ToolStripButton1 As ToolStripButton
+    Friend WithEvents GoBack As PictureBox
+    Friend WithEvents GoNext As PictureBox
 End Class

@@ -19,3 +19,4 @@ C:\Users\pasqu\source\repos\GanttModel\obj\Debug\net6.0-windows\GanttModel.genru
 C:\Users\pasqu\source\repos\GanttModel\obj\Debug\net6.0-windows\ref\GanttModel.dll
 C:\Users\pasqu\source\repos\GanttModel\obj\Debug\net6.0-windows\GanttModel.IntervalHeader.resources
 C:\Users\pasqu\source\repos\GanttModel\obj\Debug\net6.0-windows\GanttModel.TaskProgress.resources
+C:\Users\pasqu\source\repos\GanttModel\obj\Debug\net6.0-windows\GanttModel.TaskInfo.resources

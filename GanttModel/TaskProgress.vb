@@ -25,10 +25,8 @@
 
     Public Sub PerformGraphic(StartInterval As Date, EndInterval As Date)
         Dim progressLayout As TableLayoutPanel = ProgressTabelLayout
-
-        Dim i As Integer
         Dim CountDayInterval As Integer = DateDiff(DateInterval.Day, StartInterval, EndInterval)
-        'Dim CountHourInterval As Integer = CountDayInterval * 24
+
         CountHourInterval = CountDayInterval * 24
 
         Dim CountSecondStartInterval As Double = GetDateSecond(StartInterval)
@@ -38,24 +36,9 @@
         Dim CountSecondendPlanned As Double = GetDateSecond(Task.DateEndPlanned)
 
         progressLayout.ColumnStyles.Clear()
-        'progressLayout.ColumnCount = CountHourInterval
 
-        For i = 0 To CountHourInterval
-            'Calcolo cella per inizio colorazione
-            If (CountSecondStartInterval + (3600 * i)) >= CountSecondStartPlanned AndAlso CellColorStartindex = -1 Then
-                CellColorStartindex = i
-            End If
-
-            'Calcolo cella per fine colorazione
-            If (CountSecondStartInterval + (3600 * i)) >= CountSecondendPlanned AndAlso CellColorEndtindex = -1 Then
-                CellColorEndtindex = i
-                Exit For
-            End If
-        Next
-
-        If CellColorEndtindex = -1 Then
-            CellColorEndtindex = CountHourInterval
-        End If
+        CellColorStartindex = (CountSecondStartPlanned - CountSecondStartInterval) \ 3600
+        CellColorEndtindex = (CountSecondendPlanned - CountSecondStartInterval) \ 3600
     End Sub
 
     Public Sub DrawProgress()
@@ -74,5 +57,9 @@
             CellColorEndtindex -= 24
         End If
         DrawProgress()
+    End Sub
+
+    Public Sub PrintInfo()
+        MsgBox(Task.Name + " | Inizio ora: " + CellColorStartindex.ToString + vbCrLf + " | Fine ora: " + CellColorEndtindex.ToString)
     End Sub
 End Class

@@ -10,6 +10,9 @@
     <Compile Update="GanttModel\IntervalHeader.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="GanttModel\TaskInfo.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="GanttModel\TaskProgress.vb">
       <SubType>UserControl</SubType>
     </Compile>
