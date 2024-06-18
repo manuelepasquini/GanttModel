@@ -1,115 +1,43 @@
 ﻿Public Class GanttDiagram
-    Property Data As Date
-    Property GanttIntervalCount As Integer = 7
+    Property Data As Date                           'Main Date used by gantt diagram. Starting date of gantt headers                        
+    Property GanttIntervalCount As Integer = 30      'Day viewed in gantt diagram
 
-    Private ColumnsColor As New List(Of Integer)
+    Dim tasks As New List(Of TaskGantt) From {
+            New TaskGantt() With {
+                .Name = "Task 1",
+                .DateStartPlanned = New Date(2024, 6, 18, 6, 0, 0),
+                .DateEndPlanned = New Date(2024, 6, 20, 12, 0, 0),
+                .Color = Color.Green
+            }
+        }          'List of task managed by Gantt diagram
+    Private ColumnsColor As New List(Of Integer)    'rapresent the holiday date, color gantt headers
 
     Public Sub New()
-
-        ' La chiamata è richiesta dalla finestra di progettazione.
         InitializeComponent()
-        ' Aggiungere le eventuali istruzioni di inizializzazione dopo la chiamata a InitializeComponent().
+
+        'Adding handler
         AddHandler Me.GanttHeadersTablePanel.CellPaint, AddressOf GanttHeadersTablePanel_CellPaint
         AddHandler Me.GoNext.Click, AddressOf PictureBox2_Click
         AddHandler Me.GoBack.Click, AddressOf PictureBox1_Click
         AddHandler Me.Resize, AddressOf GanttDiagram_Resize
 
+        'Set starting date and perform gantt
         Data = Now.Date
         PerformGantt()
     End Sub
 
+    ''' <summary>
+    ''' Call function to show tasks in gantt diagram 
+    ''' </summary>
     Private Sub PerformGantt()
-        Dim tasks As New List(Of TaskGantt) From {
-            New TaskGantt() With {
-                .Name = "Task 1",
-                .DateStartPlanned = New Date(2024, 6, 15),
-                .DateEndPlanned = New Date(2024, 6, 23, 0, 0, 0),
-                .Color = Color.Red
-            },
-            New TaskGantt() With {
-                .Name = "task 2",
-                .DateStartPlanned = New Date(2024, 6, 16, 12, 0, 0),
-                .DateEndPlanned = New Date(2024, 6, 17)
-            },
-            New TaskGantt() With {
-                .Name = "Task 3",
-                .DateStartPlanned = New Date(2024, 6, 17),
-                .DateEndPlanned = New Date(2024, 6, 18)
-            },
-            New TaskGantt() With {
-                .Name = "task 4",
-                .DateStartPlanned = New Date(2024, 6, 11),
-                .DateEndPlanned = New Date(2024, 6, 14),
-                .Color = Color.CadetBlue
-            },
-            New TaskGantt() With {
-                .Name = "Task 5",
-                .DateStartPlanned = New Date(2024, 6, 11),
-                .DateEndPlanned = New Date(2024, 6, 14)
-            },
-            New TaskGantt() With {
-                .Name = "task 6",
-                .DateStartPlanned = New Date(2024, 6, 13),
-                .DateEndPlanned = New Date(2024, 6, 19)
-            },
-            New TaskGantt() With {
-                .Name = "Task 7",
-                .DateStartPlanned = New Date(2024, 6, 11),
-                .DateEndPlanned = New Date(2024, 6, 16)
-            },
-            New TaskGantt() With {
-                .Name = "task 8",
-                .DateStartPlanned = New Date(2024, 6, 11),
-                .DateEndPlanned = New Date(2024, 6, 14)
-            },
-            New TaskGantt() With {
-                .Name = "Task 9",
-                .DateStartPlanned = New Date(2024, 6, 16),
-                .DateEndPlanned = New Date(2024, 6, 16, 18, 0, 0),
-                .Color = Color.Red
-            },
-            New TaskGantt() With {
-                .Name = "task 10",
-                .DateStartPlanned = New Date(2024, 6, 16, 12, 0, 0),
-                .DateEndPlanned = New Date(2024, 6, 17)
-            },
-            New TaskGantt() With {
-                .Name = "Task 11",
-                .DateStartPlanned = New Date(2024, 6, 17),
-                .DateEndPlanned = New Date(2024, 6, 18)
-            },
-            New TaskGantt() With {
-                .Name = "task 12",
-                .DateStartPlanned = New Date(2024, 6, 11),
-                .DateEndPlanned = New Date(2024, 6, 14),
-                .Color = Color.CadetBlue
-            },
-            New TaskGantt() With {
-                .Name = "Task 13",
-                .DateStartPlanned = New Date(2024, 6, 11),
-                .DateEndPlanned = New Date(2024, 6, 14)
-            },
-            New TaskGantt() With {
-                .Name = "task 14",
-                .DateStartPlanned = New Date(2024, 6, 13),
-                .DateEndPlanned = New Date(2024, 6, 19)
-            },
-            New TaskGantt() With {
-                .Name = "Task 15",
-                .DateStartPlanned = New Date(2024, 6, 11),
-                .DateEndPlanned = New Date(2024, 6, 16)
-            },
-            New TaskGantt() With {
-                .Name = "task 16",
-                .DateStartPlanned = New Date(2024, 6, 11),
-                .DateEndPlanned = New Date(2024, 6, 14)
-            }
-        }
-
         SetGanttHeadersGraphics(Data)
         SetGanttTasksGraphic(tasks)
     End Sub
 
+    ''' <summary>
+    ''' Configure table layout header with days
+    ''' </summary>
+    ''' <param name="startDate"></param>
     Private Sub SetGanttHeadersGraphics(ByVal startDate As Date)
         Dim pGanttHeadersTable As TableLayoutPanel = GanttHeadersTablePanel
         Dim locationHeaderInterval As New Point(0, 0)
@@ -117,11 +45,9 @@
 
         'Setting date
         Data = startDate
-        'DateCurrent = Data
 
         pGanttHeadersTable.Controls.Clear()
         pGanttHeadersTable.ColumnStyles.Clear()
-
         pGanttHeadersTable.ColumnCount = GanttIntervalCount + 1
         pGanttHeadersTable.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 30))
         pGanttHeadersTable.RowCount = 1
@@ -159,6 +85,28 @@
         Data = startDate
     End Sub
 
+    Private Sub SetGanttHeaders(ByVal startDate As Date)
+        Dim i As Integer = 1
+        ColumnsColor.Clear()
+        Data = startDate
+        For Each control In GanttHeadersTablePanel.Controls
+            If TypeOf control Is IntervalHeader Then
+                CType(control, IntervalHeader).head.Text = Data.DayOfWeek.ToString.Substring(0, 3)
+                CType(control, IntervalHeader).body.Text = Data.Day.ToString
+                If Data.DayOfWeek = DayOfWeek.Saturday OrElse Data.DayOfWeek = DayOfWeek.Sunday Then
+                    ColumnsColor.Add(i)
+                    CType(control, IntervalHeader).BackColor = Color.Gray
+                Else
+                    CType(control, IntervalHeader).BackColor = Color.SteelBlue
+                End If
+                i += 1
+                Data = DateAdd(DateInterval.Day, 1, Data)           'Increment Date
+            End If
+        Next
+        GanttHeadersTablePanel.Invalidate()
+        Data = startDate
+    End Sub
+
     Private Sub SetGanttTasksGraphic(tasks As List(Of TaskGantt))
         Dim ganttBody As TableLayoutPanel = GanttBodyTablePanel
         Dim i As Integer = 0
@@ -170,25 +118,19 @@
         For Each task As TaskGantt In tasks
             ganttBody.RowStyles.Add(New RowStyle() With {
                 .SizeType = SizeType.Absolute,
-                .Height = 25
+                .Height = 40
             })
 
-            Dim lblTask As New Label() With {
-                .Dock = DockStyle.Left,
-                .Text = task.Name,
-                .ForeColor = Color.SlateGray,
-                .Font = New Font("Segoe UI", 12, FontStyle.Bold),
-                .TextAlign = ContentAlignment.MiddleLeft
-            }
+            'Det delle informazioni della task
+            Dim taskInfo As New TaskInfo(task)
 
-            'Dim taskInfo As Panel = GetTaskInfoPanel(task, 50)
-
+            'Impostazione della barra di avanzamento del task 
             Dim taskProgress As New TaskProgress(task, Data, DateAdd(DateInterval.Day, GanttIntervalCount, Data)) With {
                     .Dock = DockStyle.Fill
              }
 
 
-            ganttBody.Controls.Add(lblTask, 0, i)
+            ganttBody.Controls.Add(taskInfo, 0, i)
             ganttBody.Controls.Add(taskProgress, 1, i)
             taskProgress.DrawProgress()
 
@@ -204,11 +146,6 @@
 
     End Sub
 
-    'Private Sub GanttDiagram_Load(sender As Object, e As EventArgs)
-    '    Data = Now.Date
-    '    PerformGantt()
-    'End Sub
-
     Private Sub GanttDiagram_Resize(sender As Object, e As EventArgs)
         For Each control In GanttBodyTablePanel.Controls
             If TypeOf control Is TaskProgress Then
@@ -218,7 +155,7 @@
     End Sub
 
     'Backgound grigio nei dabati e domeniche più altri colori per giorni
-    Private Sub GanttHeadersTablePanel_CellPaint(sender As Object, e As TableLayoutCellPaintEventArgs)
+    Private Sub GanttHeadersTablePanel_CellPaint(sender As Object, e As TableLayoutCellPaintEventArgs) Handles GanttHeadersTablePanel.CellPaint
         Me.SuspendLayout()
         If ColumnsColor.Contains(e.Column) Then
             e.Graphics.FillRectangle(Brushes.Gray, e.CellBounds)
@@ -228,7 +165,8 @@
     End Sub
 
     Private Sub PictureBox1_Click(sender As Object, e As EventArgs)
-        SetGanttHeadersGraphics(DateAdd(DateInterval.Day, -1, Data))
+        'SetGanttHeadersGraphics(DateAdd(DateInterval.Day, -1, Data))
+        SetGanttHeaders(DateAdd(DateInterval.Day, -1, Data))
         For Each control In GanttBodyTablePanel.Controls
             If TypeOf control Is TaskProgress Then
                 CType(control, TaskProgress).MoveProgression(1)
@@ -236,7 +174,8 @@
         Next
     End Sub
     Private Sub PictureBox2_Click(sender As Object, e As EventArgs)
-        SetGanttHeadersGraphics(DateAdd(DateInterval.Day, 1, Data))
+        'SetGanttHeadersGraphics(DateAdd(DateInterval.Day, 1, Data))
+        SetGanttHeaders(DateAdd(DateInterval.Day, 1, Data))
         For Each control In GanttBodyTablePanel.Controls
             If TypeOf control Is TaskProgress Then
                 CType(control, TaskProgress).MoveProgression(2)
@@ -244,27 +183,16 @@
         Next
     End Sub
 
-    Private Function GetTaskInfoPanel(task As TaskGantt, width As Integer) As Panel
-        Dim infoPanel As New Panel
+    Private Sub GanttReload_Click(sender As Object, e As EventArgs) Handles GanttReload.Click
+        PerformGantt()
+    End Sub
 
-        'Dichiarazione eelementi da mettere all'interno del panel
-        Dim taskName As New Label() With {
-            .Dock = DockStyle.Left,
-            .Text = task.Name,
-            .ForeColor = Color.SlateGray,
-            .Font = New Font("Segoe UI", 12, FontStyle.Bold),
-            .TextAlign = ContentAlignment.MiddleLeft,
-            .Size = New Size(width * 5, 10)
-        }
+    Private Sub TaskAdd_Click(sender As Object, e As EventArgs) Handles TaskAdd.Click
+        tasks.Add(New TaskGantt() With {
+            .Name = "task",
+            .DateStartPlanned = New Date(1900, 1, 1),
+            .DateEndPlanned = New Date(1900, 1, 1)
+        })
+    End Sub
 
-        Dim btnInfo As New Button() With {
-            .Dock = DockStyle.Left
-        }
-
-        infoPanel.Controls.Add(btnInfo)
-        infoPanel.Controls.Add(taskName)
-
-
-        Return infoPanel
-    End Function
 End Class

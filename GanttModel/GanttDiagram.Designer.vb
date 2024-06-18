@@ -22,12 +22,12 @@ Partial Class GanttDiagram
     'Non modificarla mediante l'editor del codice.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As ComponentModel.ComponentResourceManager = New ComponentModel.ComponentResourceManager(GetType(GanttDiagram))
         GoBack = New PictureBox()
         GoNext = New PictureBox()
         GanttHeadersTablePanel = New TableLayoutPanel()
         ToolStrip1 = New ToolStrip()
-        ToolStripButton1 = New ToolStripButton()
+        TaskAdd = New ToolStripButton()
+        GanttReload = New ToolStripButton()
         GanttBodyTablePanel = New TableLayoutPanel()
         CType(GoBack, ComponentModel.ISupportInitialize).BeginInit()
         CType(GoNext, ComponentModel.ISupportInitialize).BeginInit()
@@ -75,20 +75,28 @@ Partial Class GanttDiagram
         ' 
         ' ToolStrip1
         ' 
-        ToolStrip1.Items.AddRange(New ToolStripItem() {ToolStripButton1})
+        ToolStrip1.Items.AddRange(New ToolStripItem() {TaskAdd, GanttReload})
         ToolStrip1.Location = New Point(0, 0)
         ToolStrip1.Name = "ToolStrip1"
         ToolStrip1.Size = New Size(508, 25)
         ToolStrip1.TabIndex = 6
         ToolStrip1.Text = "ToolStrip1"' 
-        ' ToolStripButton1
+        ' TaskAdd
         ' 
-        ToolStripButton1.DisplayStyle = ToolStripItemDisplayStyle.Image
-        ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), Image)
-        ToolStripButton1.ImageTransparentColor = Color.Magenta
-        ToolStripButton1.Name = "ToolStripButton1"
-        ToolStripButton1.Size = New Size(23, 22)
-        ToolStripButton1.Text = "ToolStripButton1"' 
+        TaskAdd.DisplayStyle = ToolStripItemDisplayStyle.Image
+        TaskAdd.Image = My.Resources.Resources.plus__1_
+        TaskAdd.ImageTransparentColor = Color.Magenta
+        TaskAdd.Name = "TaskAdd"
+        TaskAdd.Size = New Size(23, 22)
+        TaskAdd.Text = "Aggiungi Task"' 
+        ' GanttReload
+        ' 
+        GanttReload.DisplayStyle = ToolStripItemDisplayStyle.Image
+        GanttReload.Image = My.Resources.Resources.refresh
+        GanttReload.ImageTransparentColor = Color.Magenta
+        GanttReload.Name = "GanttReload"
+        GanttReload.Size = New Size(23, 22)
+        GanttReload.Text = "Ricarica Gantt"' 
         ' GanttBodyTablePanel
         ' 
         GanttBodyTablePanel.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
@@ -129,7 +137,8 @@ Partial Class GanttDiagram
     Friend WithEvents ToolStrip1 As ToolStrip
     Friend WithEvents GanttBodyTablePanel As TableLayoutPanel
     Friend WithEvents ProgressBar1 As ProgressBar
-    Friend WithEvents ToolStripButton1 As ToolStripButton
+    Friend WithEvents GanttReload As ToolStripButton
     Friend WithEvents GoBack As PictureBox
     Friend WithEvents GoNext As PictureBox
+    Friend WithEvents TaskAdd As ToolStripButton
 End Class

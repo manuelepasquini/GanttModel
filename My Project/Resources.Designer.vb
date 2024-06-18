@@ -73,9 +73,49 @@ Namespace My.Resources
         '''<summary>
         '''  Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property info() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("info", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property next__1_() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("next (1)", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property plus__1_() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("plus (1)", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property refresh() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("refresh", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property save() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("save", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

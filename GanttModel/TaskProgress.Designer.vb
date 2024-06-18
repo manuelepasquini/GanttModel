@@ -44,6 +44,7 @@ Partial Class TaskProgress
         ' 
         ' PictureBox1
         ' 
+        PictureBox1.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left
         PictureBox1.BackColor = SystemColors.ActiveCaption
         PictureBox1.Location = New Point(3, 5)
         PictureBox1.Margin = New Padding(0)

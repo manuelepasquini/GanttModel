@@ -22,69 +22,114 @@ Partial Class TaskInfo
     'Non modificarla mediante l'editor del codice.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Label1 = New Label()
-        Panel1 = New Panel()
-        Label2 = New Label()
-        Label3 = New Label()
-        Panel1.SuspendLayout()
+        TableLayoutPanel1 = New TableLayoutPanel()
+        TaskName = New Label()
+        TableLayoutPanel2 = New TableLayoutPanel()
+        dePlan = New Label()
+        dsPlan = New Label()
+        PictureBox1 = New PictureBox()
+        TableLayoutPanel1.SuspendLayout()
+        TableLayoutPanel2.SuspendLayout()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
-        ' Label1
+        ' TableLayoutPanel1
         ' 
-        Label1.BorderStyle = BorderStyle.FixedSingle
-        Label1.Dock = DockStyle.Left
-        Label1.Location = New Point(0, 0)
-        Label1.Name = "Label1"
-        Label1.Size = New Size(212, 40)
-        Label1.TabIndex = 0
-        Label1.Text = "Label1"
-        Label1.TextAlign = ContentAlignment.MiddleLeft
+        TableLayoutPanel1.ColumnCount = 3
+        TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
+        TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 40F))
+        TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 10F))
+        TableLayoutPanel1.Controls.Add(TaskName, 0, 0)
+        TableLayoutPanel1.Controls.Add(TableLayoutPanel2, 1, 0)
+        TableLayoutPanel1.Controls.Add(PictureBox1, 2, 0)
+        TableLayoutPanel1.Dock = DockStyle.Fill
+        TableLayoutPanel1.Location = New Point(0, 0)
+        TableLayoutPanel1.Name = "TableLayoutPanel1"
+        TableLayoutPanel1.RowCount = 1
+        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 100F))
+        TableLayoutPanel1.Size = New Size(475, 79)
+        TableLayoutPanel1.TabIndex = 0
         ' 
-        ' Panel1
+        ' TaskName
         ' 
-        Panel1.BorderStyle = BorderStyle.FixedSingle
-        Panel1.Controls.Add(Label3)
-        Panel1.Controls.Add(Label2)
-        Panel1.Dock = DockStyle.Left
-        Panel1.Location = New Point(212, 0)
-        Panel1.Name = "Panel1"
-        Panel1.Size = New Size(146, 40)
-        Panel1.TabIndex = 1
+        TaskName.AutoSize = True
+        TaskName.Dock = DockStyle.Fill
+        TaskName.Font = New Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point)
+        TaskName.ForeColor = SystemColors.ControlDarkDark
+        TaskName.Location = New Point(3, 0)
+        TaskName.Name = "TaskName"
+        TaskName.Size = New Size(231, 79)
+        TaskName.TabIndex = 0
+        TaskName.Text = "Label1"
+        TaskName.TextAlign = ContentAlignment.MiddleLeft
         ' 
-        ' Label2
+        ' TableLayoutPanel2
         ' 
-        Label2.Dock = DockStyle.Top
-        Label2.Location = New Point(0, 0)
-        Label2.Name = "Label2"
-        Label2.Size = New Size(144, 20)
-        Label2.TabIndex = 0
-        Label2.Text = "Label2"
-        Label2.TextAlign = ContentAlignment.MiddleRight
+        TableLayoutPanel2.ColumnCount = 1
+        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100F))
+        TableLayoutPanel2.Controls.Add(dePlan, 0, 1)
+        TableLayoutPanel2.Controls.Add(dsPlan, 0, 0)
+        TableLayoutPanel2.Location = New Point(240, 3)
+        TableLayoutPanel2.Name = "TableLayoutPanel2"
+        TableLayoutPanel2.RowCount = 2
+        TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 50F))
+        TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 50F))
+        TableLayoutPanel2.Size = New Size(184, 73)
+        TableLayoutPanel2.TabIndex = 1
         ' 
-        ' Label3
+        ' dePlan
         ' 
-        Label3.Dock = DockStyle.Top
-        Label3.Location = New Point(0, 20)
-        Label3.Name = "Label3"
-        Label3.Size = New Size(144, 20)
-        Label3.TabIndex = 1
-        Label3.Text = "Label3"
-        Label3.TextAlign = ContentAlignment.MiddleRight
+        dePlan.AutoSize = True
+        dePlan.Dock = DockStyle.Fill
+        dePlan.Location = New Point(3, 36)
+        dePlan.Name = "dePlan"
+        dePlan.Size = New Size(178, 37)
+        dePlan.TabIndex = 2
+        dePlan.Text = "Label3"
+        dePlan.TextAlign = ContentAlignment.MiddleLeft
+        ' 
+        ' dsPlan
+        ' 
+        dsPlan.AutoSize = True
+        dsPlan.Dock = DockStyle.Fill
+        dsPlan.Location = New Point(3, 0)
+        dsPlan.Name = "dsPlan"
+        dsPlan.Size = New Size(178, 36)
+        dsPlan.TabIndex = 1
+        dsPlan.Text = "Label2"
+        dsPlan.TextAlign = ContentAlignment.MiddleLeft
+        ' 
+        ' PictureBox1
+        ' 
+        PictureBox1.Cursor = Cursors.Hand
+        PictureBox1.Dock = DockStyle.Fill
+        PictureBox1.Image = My.Resources.Resources.info
+        PictureBox1.Location = New Point(430, 3)
+        PictureBox1.Name = "PictureBox1"
+        PictureBox1.Size = New Size(42, 73)
+        PictureBox1.SizeMode = PictureBoxSizeMode.CenterImage
+        PictureBox1.TabIndex = 2
+        PictureBox1.TabStop = False
         ' 
         ' TaskInfo
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        Controls.Add(Panel1)
-        Controls.Add(Label1)
+        Controls.Add(TableLayoutPanel1)
         Name = "TaskInfo"
-        Size = New Size(402, 40)
-        Panel1.ResumeLayout(False)
+        Size = New Size(475, 79)
+        TableLayoutPanel1.ResumeLayout(False)
+        TableLayoutPanel1.PerformLayout()
+        TableLayoutPanel2.ResumeLayout(False)
+        TableLayoutPanel2.PerformLayout()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
 
-    Friend WithEvents Label1 As Label
-    Friend WithEvents Panel1 As Panel
-    Friend WithEvents Label3 As Label
-    Friend WithEvents Label2 As Label
+    Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
+    Friend WithEvents TaskName As Label
+    Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
+    Friend WithEvents dePlan As Label
+    Friend WithEvents dsPlan As Label
+    Friend WithEvents PictureBox1 As PictureBox
 End Class

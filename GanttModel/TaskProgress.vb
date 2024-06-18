@@ -1,4 +1,6 @@
-﻿Public Class TaskProgress
+﻿Imports System.Drawing.Printing
+
+Public Class TaskProgress
     Private _task As TaskGantt
     Public Property Task() As TaskGantt
         Get
@@ -43,9 +45,10 @@
 
     Public Sub DrawProgress()
         Dim widthIncrement As Double = Me.Width / CountHourInterval
+        Me.PictureBox1.Margin = New Padding(0, 0, 3, 3)
         Me.PictureBox1.BackColor = Task.Color
         Me.PictureBox1.Location = New Point(widthIncrement * (CellColorStartindex), 3)
-        Me.PictureBox1.Size = New Size(widthIncrement * (CellColorEndtindex - CellColorStartindex), 15)
+        Me.PictureBox1.Size = New Size(widthIncrement * (CellColorEndtindex - CellColorStartindex), Me.Height)
     End Sub
 
     Public Sub MoveProgression(action As Integer)
