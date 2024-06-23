@@ -1,6 +1,6 @@
 ﻿Public Class GanttDiagram
     Property Data As Date                           'Main Date used by gantt diagram. Starting date of gantt headers                        
-    Property GanttIntervalCount As Integer = 30      'Day viewed in gantt diagram
+    Property GanttIntervalCount As Integer = 21      'Day viewed in gantt diagram
 
     Dim tasks As New List(Of TaskGantt) From {
             New TaskGantt() With {

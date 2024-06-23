@@ -39,7 +39,7 @@ Partial Class GanttDiagram
         GoBack.Anchor = AnchorStyles.Top
         GoBack.Cursor = Cursors.Hand
         GoBack.Image = My.Resources.Resources.next__1_
-        GoBack.Location = New Point(219, 25)
+        GoBack.Location = New Point(331, 25)
         GoBack.Name = "GoBack"
         GoBack.Size = New Size(49, 48)
         GoBack.SizeMode = PictureBoxSizeMode.CenterImage
@@ -51,7 +51,7 @@ Partial Class GanttDiagram
         GoNext.Anchor = AnchorStyles.Top
         GoNext.Cursor = Cursors.Hand
         GoNext.Image = My.Resources.Resources._next
-        GoNext.Location = New Point(274, 25)
+        GoNext.Location = New Point(386, 25)
         GoNext.Name = "GoNext"
         GoNext.Size = New Size(49, 48)
         GoNext.SizeMode = PictureBoxSizeMode.CenterImage
@@ -70,7 +70,7 @@ Partial Class GanttDiagram
         GanttHeadersTablePanel.Name = "GanttHeadersTablePanel"
         GanttHeadersTablePanel.RowCount = 1
         GanttHeadersTablePanel.RowStyles.Add(New RowStyle(SizeType.Percent, 100F))
-        GanttHeadersTablePanel.Size = New Size(503, 43)
+        GanttHeadersTablePanel.Size = New Size(727, 43)
         GanttHeadersTablePanel.TabIndex = 5
         ' 
         ' ToolStrip1
@@ -78,7 +78,7 @@ Partial Class GanttDiagram
         ToolStrip1.Items.AddRange(New ToolStripItem() {TaskAdd, GanttReload})
         ToolStrip1.Location = New Point(0, 0)
         ToolStrip1.Name = "ToolStrip1"
-        ToolStrip1.Size = New Size(508, 25)
+        ToolStrip1.Size = New Size(732, 25)
         ToolStrip1.TabIndex = 6
         ToolStrip1.Text = "ToolStrip1"' 
         ' TaskAdd
@@ -108,7 +108,7 @@ Partial Class GanttDiagram
         GanttBodyTablePanel.Name = "GanttBodyTablePanel"
         GanttBodyTablePanel.RowCount = 1
         GanttBodyTablePanel.RowStyles.Add(New RowStyle(SizeType.Absolute, 20F))
-        GanttBodyTablePanel.Size = New Size(503, 179)
+        GanttBodyTablePanel.Size = New Size(727, 310)
         GanttBodyTablePanel.TabIndex = 7
         ' 
         ' GanttDiagram
@@ -123,7 +123,7 @@ Partial Class GanttDiagram
         Controls.Add(GoBack)
         DoubleBuffered = True
         Name = "GanttDiagram"
-        Size = New Size(508, 310)
+        Size = New Size(732, 441)
         CType(GoBack, ComponentModel.ISupportInitialize).EndInit()
         CType(GoNext, ComponentModel.ISupportInitialize).EndInit()
         ToolStrip1.ResumeLayout(False)
