@@ -4,8 +4,6 @@ C:\Users\pasqu\source\repos\GanttModel\bin\Debug\net6.0-windows\GanttModel.runti
 C:\Users\pasqu\source\repos\GanttModel\bin\Debug\net6.0-windows\GanttModel.dll
 C:\Users\pasqu\source\repos\GanttModel\bin\Debug\net6.0-windows\GanttModel.pdb
 C:\Users\pasqu\source\repos\GanttModel\obj\Debug\net6.0-windows\GanttModel.vbproj.AssemblyReference.cache
-C:\Users\pasqu\source\repos\GanttModel\obj\Debug\net6.0-windows\GanttModel.Form1.resources
-C:\Users\pasqu\source\repos\GanttModel\obj\Debug\net6.0-windows\GanttModel.GanttDiagram.resources
 C:\Users\pasqu\source\repos\GanttModel\obj\Debug\net6.0-windows\GanttModel.Resources.resources
 C:\Users\pasqu\source\repos\GanttModel\obj\Debug\net6.0-windows\GanttModel.vbproj.GenerateResource.cache
 C:\Users\pasqu\source\repos\GanttModel\obj\Debug\net6.0-windows\GanttModel.GeneratedMSBuildEditorConfig.editorconfig
@@ -18,7 +16,9 @@ C:\Users\pasqu\source\repos\GanttModel\obj\Debug\net6.0-windows\GanttModel.pdb
 C:\Users\pasqu\source\repos\GanttModel\obj\Debug\net6.0-windows\GanttModel.genruntimeconfig.cache
 C:\Users\pasqu\source\repos\GanttModel\obj\Debug\net6.0-windows\ref\GanttModel.dll
 C:\Users\pasqu\source\repos\GanttModel\obj\Debug\net6.0-windows\GanttModel.IntervalHeader.resources
-C:\Users\pasqu\source\repos\GanttModel\obj\Debug\net6.0-windows\GanttModel.TaskProgress.resources
 C:\Users\pasqu\source\repos\GanttModel\obj\Debug\net6.0-windows\GanttModel.TaskInfo.resources
 C:\Users\pasqu\source\repos\GanttModel\obj\Debug\net6.0-windows\GanttModel.Container.resources
 C:\Users\pasqu\source\repos\GanttModel\obj\Debug\net6.0-windows\GanttModel.TaskData.resources
+C:\Users\pasqu\source\repos\GanttModel\obj\Debug\net6.0-windows\GanttModel.GanttControl.resources
+C:\Users\pasqu\source\repos\GanttModel\obj\Debug\net6.0-windows\GanttModel.Main.resources
+C:\Users\pasqu\source\repos\GanttModel\obj\Debug\net6.0-windows\GanttModel.TaskControl.resources
